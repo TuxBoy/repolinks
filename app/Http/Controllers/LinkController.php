@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LinkRequest;
 use App\Link;
 use App\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class LinkController extends Controller
 {
@@ -15,6 +13,7 @@ class LinkController extends Controller
 
   public function index()
   {
+    /** @var $links Link */
     $links = Link::linksByOrder()->where('user_id', Auth::id())->paginate(self::NBR_LINK_PER_PAGE);
     return view('links.index', compact('links'));
   }
@@ -33,10 +32,11 @@ class LinkController extends Controller
     $favory = $request->input('favory');
     if (!empty($request->all())) {
       Link::create([
-        'url'      => $request->input('url'),
-        'priority' => $request->input('priority'),
-        'favory'   => (isset($favory)) ? 1 : 0,
-        'user_id'  => $request->user()->id
+        'url'         => $request->input('url'),
+        'description' => $request->input('description'),
+        'priority'    => $request->input('priority'),
+        'favory'      => (isset($favory)) ? 1 : 0,
+        'user_id'     => $request->user()->id
       ]);
       return redirect()->route('link.index')->with('success', 'Le lien a bien été sauvegardé.');
     }

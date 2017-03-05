@@ -22,7 +22,10 @@
                         <div class="info-user" data-toggle="tooltip" data-placement="left" title="Ajouté par {{ $link->user->name }}">
                             <a href="{{ route('link.user', $link->user) }}"><img src="http://lorempicsum.com/simpsons/350/200/1" class="rounded-circle avatar" alt=""></a>
                         </div>
-                        <a class="col-md-10 list-group-item list-group-item-{{ $link->showPriority() }}" href="{{ $link->url }}">{{ $link->url }}</a>
+                        <div class="col-md-10 list-group-item list-group-item-{{ $link->showPriority() }}">
+                            <a href="{{ $link->url }}" title="Accéder directement au site">{{ $link->url }}</a>
+                            <p>{{ $link->description }}</p>
+                        </div>
                     </div>
                 @endforeach
             </div>

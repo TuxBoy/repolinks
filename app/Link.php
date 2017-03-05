@@ -27,7 +27,7 @@ class Link extends Model
    * @param $url   string
    * @return string
    */
-    public function geturlAttribute($url)
+    public function getUrlAttribute($url)
     {
       if (strrpos($url, 'http') === false) {
         return 'http://' . $url;
