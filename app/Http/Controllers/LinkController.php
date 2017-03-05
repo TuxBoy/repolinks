@@ -38,7 +38,7 @@ class LinkController extends Controller
         'favory'   => (isset($favory)) ? 1 : 0,
         'user_id'  => $request->user()->id
       ]);
-      return redirect()->route('link.index')->with('success', 'Le lien a bien �t� sauvegard�.');
+      return redirect()->route('link.index')->with('success', 'Le lien a bien été sauvegardé.');
     }
     return false;
   }
