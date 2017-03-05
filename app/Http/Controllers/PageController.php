@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Link;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -13,7 +11,7 @@ class PageController extends Controller
   {
     $all_links = Link::linksByOrder()->paginate(15);
     return view('pages.index', [
-      'links' => $all_linksgit
+      'links' => $all_links
     ]);
   }
 
