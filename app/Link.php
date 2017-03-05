@@ -13,13 +13,16 @@ class Link extends Model
 {
     protected $fillable = ['url', 'favory', 'user_id', 'priority', 'description'];
 
+  /**
+   * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+   */
     public function user()
     {
       return $this->belongsTo(User::class);
     }
 
   /**
-   * Permet d'ajouter le http:// à une url si elle en a pas.
+   * Permet d'ajouter le http:// ï¿½ une url si elle en a pas.
    *
    * @param $url   string
    * @return string
