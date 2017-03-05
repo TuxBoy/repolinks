@@ -1,0 +1,40 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);.container {
+  padding-top: 40px !important;
+}
+
+.right {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+
+.link__delete {
+  display: inline-block;
+  opacity: 0;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+}
+
+.links a:hover .link__delete {
+  opacity: 1;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  float: left;
+}
+
+.line {
+  margin-bottom: 15px;
+}
+
+.flash {
+  position: fixed;
+  width: 100%;
+  z-index: 2222;
+  top: 0;
+  right: 0;
+  left: 0;
+}
