@@ -26,7 +26,7 @@ class LinkRequest extends FormRequest
     {
         return [
           'url'         => 'required|unique:links',
-          'description' => 'max:255',
+          'description' => 'string|max:255',
           'priority'    => 'required|' . Rule::in(['normal,hight,low'])
         ];
     }
