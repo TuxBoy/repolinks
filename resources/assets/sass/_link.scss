@@ -11,11 +11,9 @@
   transition-duration: .3s;
 }
 
-.links {
-  a:hover .link__delete {
+  .links:hover .link__delete {
     opacity: 1;
   }
-}
 
 .avatar {
   width: 70px;
