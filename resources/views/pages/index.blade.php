@@ -28,14 +28,16 @@
                                 @if($link->favory)
                                     <div class="badge badge-info mr-sm-2">Favoris</div>
                                 @endif
-                                <form action="{{ route('link.destroy', $link) }}" class="link__delete" method="post">
-                                    {{ csrf_field() }}
-                                    <input type="hidden" name="_method" value="delete">
-                                    <button type="submit" class="close" data-toggle="tooltip" data-placement="right" title="Supprimer le lien">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </form>
-                                <a href="{{ route('link.edit', $link) }}">Editer</a>
+                                @if (auth()->user() && auth()->user()->id === $link->user->id)
+                                    <form action="{{ route('link.destroy', $link) }}" class="link__delete" method="post">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="_method" value="delete">
+                                        <button type="submit" class="close" data-toggle="tooltip" data-placement="right" title="Supprimer le lien">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </form>
+                                    <a href="{{ route('link.edit', $link) }}">Editer</a>
+                                 @endif
                             </div>
                         </div>
                     </div>
