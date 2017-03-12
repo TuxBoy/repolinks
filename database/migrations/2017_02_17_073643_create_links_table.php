@@ -17,7 +17,7 @@ class CreateLinksTable extends Migration
             $table->increments('id');
             $table->string('url');
             $table->enum('priority', ['Hight', 'Low', 'Normal'])->default('Normal');
-            $table->boolean('favory')->default(0);
+            $table->boolean('favory')->nullable()->default(0);
             $table->integer('user_id')->unsigned()->index();
             $table->timestamps();
         });
