@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/TuxBoy/repolinks.svg?branch=master)](https://travis-ci.org/TuxBoy/repolinks)
 
-# repolinks
+# repolinks v0.1 Bêta
 C'est une application qui permet de garder dans un coin tous les liens (en rapport avec le développement web) que l'on trouve un peut partout, par exemple vous êtes au boulot, vous tombez sur un site intéressant mais vous n'avez pas le temps de le lire ou vous voulez vous en souvenir, c'est ici qu'entre en jeu RepoLinks (nom encore temporaire).
 Dans RepoLinks, vous allez pouvoir voir également ce que d'autres utilisateurs ont postés et peut être découvrir de nouveaux site.
 
