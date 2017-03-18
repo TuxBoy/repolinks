@@ -5,13 +5,15 @@ namespace App;
 use App\TuxBoy\Priority;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * @property mixed priority
  */
 class Link extends Model
 {
-    protected $fillable = ['url', 'favory', 'user_id', 'priority', 'description'];
+
+    protected $fillable = ['url', 'favory', 'user_id', 'priority', 'description', 'private'];
 
   /**
    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -52,6 +54,14 @@ class Link extends Model
     public function scopeLinksByOrder(Builder $query)
     {
       return $query->orderBy('created_at', 'desc');
+    }
+
+    /**
+     * @return boolean
+     */
+    public function allowAccess()
+    {
+      return boolval(Auth::check() && Auth::id() === $this->user->id);
     }
 
 }
