@@ -21,6 +21,11 @@
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description">Favoris ?</span>
             </label>
+            <label class="custom-control custom-checkbox">
+                <input type="checkbox" name="private" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Privé ?</span>
+            </label>
         </div>
         <p>
             <button class="btn btn-primary" type="submit">Envoyer</button>

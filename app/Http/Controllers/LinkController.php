@@ -3,17 +3,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LinkRequest;
 use App\Link;
+use App\TuxBoy\Has_Rules;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class LinkController extends Controller
 {
 
+  use Has_Rules;
+
   const NBR_LINK_PER_PAGE = 10;
 
+  /**
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+   */
   public function index()
   {
     /** @var $links Link */
@@ -21,6 +26,10 @@ class LinkController extends Controller
     return view('links.index', compact('links'));
   }
 
+  /**
+   * @param User $user
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+   */
   public function user(User $user)
   {
     $links_to_user = Link::where('user_id', $user->id)->get();
@@ -33,7 +42,14 @@ class LinkController extends Controller
   public function store(LinkRequest $request)
   {
     if (!empty($request->all())) {
-      Link::create($request->only('url', 'description', 'favory', 'priority', 'private', 'user_id'));
+      Link::create([
+        'url'         => $request->input('url'),
+        'description' => $request->input('description'),
+        'favory'      => $request->input('favory') ? true : false,
+        'private'     => $request->input('private') ? true : false,
+        'priority'    => $request->input('priority'),
+        'user_id'     => $request->input('user_id'),
+      ]);
       return redirect()->route('link.index')->with('success', 'Le lien a bien été sauvegardé.');
     }
     return false;
@@ -63,7 +79,13 @@ class LinkController extends Controller
   {
     $this->validator($request->all())->validate();
     // Met à jour le lien
-    $link->update($request->only('url', 'description', 'favory', 'priority'));
+    $link->update([
+      'url'         => $request->input('url'),
+      'description' => $request->input('description'),
+      'favory'      => $request->input('favory') ? true : false,
+      'private'     => $request->input('private') ? true : false,
+      'priority'    => $request->input('priority'),
+    ]);
     return redirect()->route('link.index')->with('success', 'Votre lien a bien été mis à jour.');
   }
 
@@ -73,11 +95,7 @@ class LinkController extends Controller
    */
   protected function validator(array $data)
   {
-    return Validator::make($data, [
-      'url'         => 'required',
-      'description' => 'string|max:255',
-      'priority'    => 'required|' . Rule::in(['normal,hight,low'])
-    ]);
+    return Validator::make($data, $this->defaultRules());
   }
 
 }

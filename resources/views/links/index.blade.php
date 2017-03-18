@@ -15,9 +15,8 @@
                        <a href="{{ $link->url }}" class="list-group-item list-group-item-{{ $link->showPriority() }}">
                            {{ $link->url }}
                            <div class="right">
-                               @if($link->favory)
-                                   <div class="badge badge-info mr-sm-2">Favoris</div>
-                               @endif
+                               {!! $link->favory ? '<div class="badge badge-info mr-sm-2">Favoris</div>' : '' !!}
+                               {!! $link->private ? '<div class="badge badge-danger mr-sm-2">Privé</div>' : '' !!}
                                <form action="{{ route('link.destroy', $link) }}" class="link__delete" method="post">
                                    {{ csrf_field() }}
                                    <input type="hidden" name="_method" value="delete">

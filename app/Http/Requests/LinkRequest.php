@@ -1,12 +1,14 @@
 <?php
-
 namespace App\Http\Requests;
 
+use App\TuxBoy\Has_Rules;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class LinkRequest extends FormRequest
 {
+
+    use Has_Rules;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,10 +26,7 @@ class LinkRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-          'url'         => 'required|unique:links',
-          'description' => 'string|max:255',
-          'priority'    => 'required|' . Rule::in(['normal,hight,low'])
-        ];
+      return $this->defaultRules(['url' => 'required|unique:links']);
     }
+
 }

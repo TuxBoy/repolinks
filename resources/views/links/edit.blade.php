@@ -23,9 +23,14 @@
                 </div>
                 <div class="form-control">
                     <label class="custom-control custom-checkbox">
-                        <input type="checkbox" name="favory" class="custom-control-input">
+                        <input type="checkbox" name="favory" {{ $link->favory ? 'checked' : '' }} class="custom-control-input">
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">Favoris ?</span>
+                    </label>
+                    <label class="custom-control custom-checkbox">
+                        <input type="checkbox" name="private" {{ $link->private ? 'checked' : '' }} class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">Privé ?</span>
                     </label>
                 </div>
                 <p>
