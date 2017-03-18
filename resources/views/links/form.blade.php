@@ -1,6 +1,7 @@
 <fieldset>
     <form action="{{ route('link.store') }}" class="form" method="post">
         {{ csrf_field() }}
+        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
         <div class="form-group">
             <input type="text" placeholder="Votre URL" class="form-control" name="url" value="{{ old('url') }}">
         </div>

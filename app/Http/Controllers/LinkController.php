@@ -32,15 +32,8 @@ class LinkController extends Controller
 
   public function store(LinkRequest $request)
   {
-    $favory = $request->input('favory');
     if (!empty($request->all())) {
-      Link::create([
-        'url'         => $request->input('url'),
-        'description' => $request->input('description'),
-        'priority'    => $request->input('priority'),
-        'favory'      => (isset($favory)) ? 1 : 0,
-        'user_id'     => $request->user()->id
-      ]);
+      Link::create($request->only('url', 'description', 'favory', 'priority', 'private', 'user_id'));
       return redirect()->route('link.index')->with('success', 'Le lien a bien été sauvegardé.');
     }
     return false;
