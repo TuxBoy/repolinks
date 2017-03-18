@@ -29,4 +29,3 @@ Cette application m'a permis surtout de me former et de découvrir le framework 
 ## TODO
 
 * Améliorer l'accès au formulaire d'ajout via une popup.
-* Pouvoir créer des liens en privé.
