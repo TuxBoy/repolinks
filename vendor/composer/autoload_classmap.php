@@ -28,7 +28,7 @@ return array(
   'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
   'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
   'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
-  'App\\TuxBoy\\Priority' => $baseDir . '/app/Tuxboy/Priority.php',
+  'App\\Tuxboy\\Priority' => $baseDir . '/app/Tuxboy/Priority.php',
   'App\\User' => $baseDir . '/app/User.php',
   'Barryvdh\\Debugbar\\Console\\ClearCommand' => $vendorDir . '/barryvdh/laravel-debugbar/src/Console/ClearCommand.php',
   'Barryvdh\\Debugbar\\Console\\PublishCommand' => $vendorDir . '/barryvdh/laravel-debugbar/src/Console/PublishCommand.php',

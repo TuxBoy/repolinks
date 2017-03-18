@@ -1,14 +1,10 @@
 <?php
-
 namespace Tests\Feature;
 
 use App\Link;
 use App\TuxBoy\Priority;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class LinksTest extends TestCase
 {

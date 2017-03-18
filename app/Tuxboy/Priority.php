@@ -1,5 +1,5 @@
 <?php
-namespace App\TuxBoy;
+namespace App\Tuxboy;
 
 /**
  * Priority

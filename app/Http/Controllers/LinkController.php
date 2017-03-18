@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LinkRequest;
 use App\Link;
-use App\TuxBoy\Has_Rules;
+use App\Tuxboy\Has_Rules;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
